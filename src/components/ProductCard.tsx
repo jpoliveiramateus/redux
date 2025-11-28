@@ -41,8 +41,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           {product.description}
         </p>
 
-        <div className="flex items-center justify-between">
-          <span className="text-3xl font-bold text-green-400">
+        <div className="space-y-4">
+          <span className="text-3xl font-bold text-green-400 block">
             {formattedPrice}
           </span>
           <button
@@ -50,7 +50,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
             onKeyDown={handleKeyDown}
             tabIndex={0}
             aria-label={`Adicionar ${product.name} ao carrinho`}
-            className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-all transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl"
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-all transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl"
           >
             Adicionar
           </button>
