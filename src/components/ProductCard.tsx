@@ -1,13 +1,17 @@
+import { useDispatch } from "react-redux";
+
 import { Product } from "../types/product";
+import { addProduct } from "../redux/features/cart";
 
 type Props = {
   product: Product;
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
+  const dispatch = useDispatch();
+
   const handleAddToCart = () => {
-    // Por enquanto não faz nada
-    console.log("Produto adicionado:", product.name);
+    dispatch(addProduct(product));
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

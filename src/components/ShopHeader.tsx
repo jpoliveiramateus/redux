@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login, logout } from "../redux/features/user";
+
 import { useAppSelector } from "../redux/hooks";
+import { login, logout } from "../redux/features/user";
+import { selectCartProductsCount } from "../redux/features/cart";
+
 import { CartDrawer } from "./CartDrawer";
 
 export const ShopHeader = () => {
-  const { user } = useAppSelector((state) => state.userReducer);
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const { user } = useAppSelector((state) => state.userReducer);
+  const productsCount = useAppSelector(selectCartProductsCount);
 
   const dispatch = useDispatch();
 
@@ -49,7 +54,7 @@ export const ShopHeader = () => {
                 aria-label="Abrir carrinho"
               >
                 <span className="text-white font-semibold">
-                  🛒 Carrinho (0)
+                  🛒 Carrinho ({productsCount})
                 </span>
               </button>
               {user ? (
