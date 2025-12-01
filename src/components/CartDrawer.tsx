@@ -170,7 +170,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                       </div>
                       <div className="text-right">
                         <p className="text-white font-bold">
-                          R$ {(product.price * 1).toFixed(2)}
+                          R$ {(product.price * product.quantity).toFixed(2)}
                         </p>
                       </div>
                     </div>
