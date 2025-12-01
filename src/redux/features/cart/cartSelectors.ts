@@ -6,10 +6,3 @@ export const selectCartProductsCount = (state: RootState) => {
     0
   );
 };
-
-export const selectCartProductsTotalPrice = (state: RootState) => {
-  return state.cartReducer.products.reduce(
-    (acc, product) => acc + product.price * product.quantity,
-    0
-  );
-};
