@@ -4,7 +4,6 @@ import { useAppSelector } from "../redux/hooks";
 import {
   decreaseProductQuantity,
   increaseProductQuantity,
-  removeProduct,
 } from "../redux/features/cart";
 
 type CartDrawerProps = {
@@ -18,7 +17,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
   const { products } = useAppSelector((state) => state.cartReducer);
 
   const handleRemove = (productId: number) => {
-    dispatch(removeProduct(productId));
+    // TODO! Implementar a remoção do produto do carrinho
   };
 
   const handleIncreaseQuantity = (productId: number) => {

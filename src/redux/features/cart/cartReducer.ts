@@ -27,14 +27,6 @@ export const cartReducer = (state = initialState, action: CartAction) => {
         products: [...state.products, { ...action.payload, quantity: 1 }],
       };
 
-    case CartActionType.REMOVE_PRODUCT:
-      return {
-        ...state,
-        products: state.products.filter(
-          (product) => product.id !== action.payload
-        ),
-      };
-
     case CartActionType.INCREASE_PRODUCT_QUANTITY:
       return {
         ...state,
