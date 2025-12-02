@@ -44,7 +44,9 @@ export const ShopHeader = () => {
               />
               <div>
                 <h1 className="text-4xl font-bold text-white">Redux</h1>
-                <p className="text-gray-400 mt-2">Projeto de estudo de Redux</p>
+                <p className="text-gray-400 mt-2">
+                  Projeto de estudo com Redux
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-4">
