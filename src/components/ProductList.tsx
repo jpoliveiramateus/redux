@@ -1,15 +1,39 @@
-import { Product } from "../types/product";
+import { useEffect } from "react";
+
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
+import { fetchProducts } from "../redux/features/cart";
+
 import { ProductCard } from "./ProductCard";
 
-type Props = {
-  products: Product[];
-};
+export const ProductList: React.FC = () => {
+  const dispatch = useAppDispatch();
 
-export const ProductList: React.FC<Props> = ({ products }) => {
-  if (!products || products.length === 0) {
+  const { products, status } = useAppSelector((state) => state.cartReducer);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  if (status === "loading") {
     return (
       <div className="text-center py-12">
-        <p className="text-white text-xl">Nenhum produto disponível</p>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500 mx-auto" />
+      </div>
+    );
+  }
+
+  if (status === "failed") {
+    return (
+      <div className="text-center py-12">
+        <p className="text-white text-xl">Erro ao carregar produtos</p>
+      </div>
+    );
+  }
+
+  if (products.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-white text-xl">Nenhum produto encontrado</p>
       </div>
     );
   }
