@@ -30,6 +30,11 @@ const cartSlice = createSlice({
         });
       }
     },
+    removeProduct: (state, action: PayloadAction<number>) => {
+      state.products = state.products.filter(
+        (product) => product.id !== action.payload
+      );
+    },
     increaseProductQuantity: (state, action: PayloadAction<number>) => {
       state.products = state.products.map((product) =>
         product.id === action.payload
@@ -49,7 +54,11 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addProduct, increaseProductQuantity, decreaseProductQuantity } =
-  cartSlice.actions;
+export const {
+  addProduct,
+  removeProduct,
+  increaseProductQuantity,
+  decreaseProductQuantity,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -4,6 +4,7 @@ import { useAppSelector } from "../redux/hooks";
 import {
   decreaseProductQuantity,
   increaseProductQuantity,
+  removeProduct,
   selectCartProductsTotalPrice,
 } from "../redux/features/cart";
 
@@ -19,7 +20,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
   const productsTotalPrice = useAppSelector(selectCartProductsTotalPrice);
 
   const handleRemove = (productId: number) => {
-    // TODO! Implementar a remoção do produto do carrinho
+    dispatch(removeProduct(productId));
   };
 
   const handleIncreaseQuantity = (productId: number) => {
