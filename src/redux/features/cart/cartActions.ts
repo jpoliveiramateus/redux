@@ -4,20 +4,12 @@ import {
   CartActionType,
   DecreaseProductQuantityAction,
   IncreaseProductQuantityAction,
-  RemoveProductAction,
 } from "./cartTypes";
 
 export const addProduct = (product: Product): AddProductAction => {
   return {
     type: CartActionType.ADD_PRODUCT,
     payload: product,
-  };
-};
-
-export const removeProduct = (productId: number): RemoveProductAction => {
-  return {
-    type: CartActionType.REMOVE_PRODUCT,
-    payload: productId,
   };
 };
 

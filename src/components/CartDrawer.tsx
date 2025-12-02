@@ -4,8 +4,6 @@ import { useAppSelector } from "../redux/hooks";
 import {
   decreaseProductQuantity,
   increaseProductQuantity,
-  removeProduct,
-  selectCartProductsTotalPrice,
 } from "../redux/features/cart";
 
 type CartDrawerProps = {
@@ -17,10 +15,9 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
   const dispatch = useDispatch();
 
   const { products } = useAppSelector((state) => state.cartReducer);
-  const totalPrice = useAppSelector(selectCartProductsTotalPrice);
 
   const handleRemove = (productId: number) => {
-    dispatch(removeProduct(productId));
+    // TODO! Implementar a remoção do produto do carrinho
   };
 
   const handleIncreaseQuantity = (productId: number) => {
@@ -183,9 +180,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
           <div className="border-t border-gray-700 p-6">
             <div className="flex items-center justify-between">
               <span className="text-xl font-semibold text-white">Total:</span>
-              <span className="text-2xl font-bold text-green-500">
-                R$ {totalPrice.toFixed(2)}
-              </span>
+              <span className="text-2xl font-bold text-green-500">R$ 0,00</span>
             </div>
           </div>
         </div>

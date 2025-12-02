@@ -10,7 +10,6 @@ export type CartState = {
 
 export enum CartActionType {
   ADD_PRODUCT = "cart/addProduct",
-  REMOVE_PRODUCT = "cart/removeProduct",
   INCREASE_PRODUCT_QUANTITY = "cart/increaseProductQuantity",
   DECREASE_PRODUCT_QUANTITY = "cart/decreaseProductQuantity",
 }
@@ -18,11 +17,6 @@ export enum CartActionType {
 export type AddProductAction = {
   type: CartActionType.ADD_PRODUCT;
   payload: Product;
-};
-
-export type RemoveProductAction = {
-  type: CartActionType.REMOVE_PRODUCT;
-  payload: number;
 };
 
 export type IncreaseProductQuantityAction = {
@@ -37,6 +31,5 @@ export type DecreaseProductQuantityAction = {
 
 export type CartAction =
   | AddProductAction
-  | RemoveProductAction
   | IncreaseProductQuantityAction
   | DecreaseProductQuantityAction;
