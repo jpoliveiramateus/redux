@@ -5,7 +5,7 @@ import {
   decreaseProductQuantity,
   increaseProductQuantity,
   removeProduct,
-  selectCartProductsTotalPrice,
+  selectSelectedProductsTotalPrice,
 } from "../redux/features/cart";
 
 type CartDrawerProps = {
@@ -16,8 +16,10 @@ type CartDrawerProps = {
 export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
   const dispatch = useDispatch();
 
-  const { products } = useAppSelector((state) => state.cartReducer);
-  const productsTotalPrice = useAppSelector(selectCartProductsTotalPrice);
+  const { selectedProducts } = useAppSelector((state) => state.cartReducer);
+  const selectedProductsTotalPrice = useAppSelector(
+    selectSelectedProductsTotalPrice
+  );
 
   const handleRemove = (productId: number) => {
     dispatch(removeProduct(productId));
@@ -75,7 +77,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
           </div>
 
           <div className="flex-1 p-6 overflow-y-auto">
-            {products.length === 0 ? (
+            {selectedProducts.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-gray-400">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +97,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
               </div>
             ) : (
               <div className="space-y-4">
-                {products.map((product) => (
+                {selectedProducts.map((product) => (
                   <div
                     key={product.id}
                     className="bg-gray-700 rounded-lg p-4 border border-gray-600"
@@ -184,7 +186,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
             <div className="flex items-center justify-between">
               <span className="text-xl font-semibold text-white">Total:</span>
               <span className="text-2xl font-bold text-green-500">
-                R$ {productsTotalPrice.toFixed(2)}
+                R$ {selectedProductsTotalPrice.toFixed(2)}
               </span>
             </div>
           </div>

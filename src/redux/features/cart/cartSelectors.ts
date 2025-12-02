@@ -9,15 +9,15 @@ import { RootState } from "../../store/reducer";
 //   );
 // };
 
-const cartProducts = (state: RootState) => state.cartReducer.products;
+const cartProducts = (state: RootState) => state.cartReducer.selectedProducts;
 
 // Selector memoizado - só recalcula se os produtos mudarem
-export const selectCartProductsCount = createSelector(
+export const selectSelectedProductsCount = createSelector(
   [cartProducts],
   (products) => products.reduce((acc, product) => acc + product.quantity, 0)
 );
 
-export const selectCartProductsTotalPrice = createSelector(
+export const selectSelectedProductsTotalPrice = createSelector(
   [cartProducts],
   (products) =>
     products.reduce((acc, product) => acc + product.price * product.quantity, 0)

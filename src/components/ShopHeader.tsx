@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { useAppSelector } from "../redux/hooks";
 import { login, logout } from "../redux/features/user";
-import { selectCartProductsCount } from "../redux/features/cart";
+import { selectSelectedProductsCount } from "../redux/features/cart";
 
 import { CartDrawer } from "./CartDrawer";
 
@@ -11,7 +11,7 @@ export const ShopHeader = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const { user } = useAppSelector((state) => state.userReducer);
-  const productsCount = useAppSelector(selectCartProductsCount);
+  const productsCount = useAppSelector(selectSelectedProductsCount);
 
   const dispatch = useDispatch();
 
@@ -44,7 +44,9 @@ export const ShopHeader = () => {
               />
               <div>
                 <h1 className="text-4xl font-bold text-white">Redux</h1>
-                <p className="text-gray-400 mt-2">Projeto de estudo de Redux</p>
+                <p className="text-gray-400 mt-2">
+                  Projeto de estudo com Redux
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-4">

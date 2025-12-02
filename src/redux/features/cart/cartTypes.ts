@@ -5,7 +5,9 @@ export type CartProduct = Product & {
 };
 
 export type CartState = {
-  products: CartProduct[];
+  products: Product[];
+  selectedProducts: CartProduct[];
+  status: "idle" | "loading" | "succeeded" | "failed";
 };
 
 // export enum CartActionType {
