@@ -1,4 +1,3 @@
-export * from "./cartActions";
-export * from "./cartReducer";
+export * from "./cartSlice";
 export * from "./cartTypes";
 export * from "./cartSelectors";
